@@ -1,0 +1,11 @@
+Date created,Name,Container cluster,Number of replicas,Namespace,Container Spec,Impacted Commodity,Resize Direction,Current Value,New Value,Change,Units,Action Description,Action Category,Risk Descrption,Action Mode,User Account,Execution Date and Time,Execution Status,Execution Error,Tags
+15 Sep 2025 10:00,app-prod-service,Kubernetes-test-cluster,2,app-production,app-prod-service,VCPURequest,Upsize,500.0,750.0,250,mCores,Resize VCPURequest for production app,Performance,VCPURequest Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,app: prod
+15 Sep 2025 10:00,app-test-service,Kubernetes-test-cluster,1,app-testing,app-test-service,VCPURequest,Upsize,300.0,600.0,300,mCores,Resize VCPURequest for test app,Performance,VCPURequest Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,app: test
+15 Sep 2025 10:00,db-prod-service,Kubernetes-test-cluster,3,database-production,db-prod-service,VMem,Upsize,1048576.0,1572864.0,524288,KB,Resize VMem for production database,Performance,VMem Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,db: prod
+15 Sep 2025 10:00,monitoring-service,Kubernetes-test-cluster,1,monitoring-system,monitoring-service,VCPURequest,Upsize,200.0,400.0,200,mCores,Resize VCPURequest for monitoring,Performance,VCPURequest Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,monitoring: system
+15 Sep 2025 10:00,default-service,Kubernetes-test-cluster,1,default,default-service,VCPU,Upsize,400.0,800.0,400,mCores,Resize VCPU for default service,Performance,VCPU Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,default: app
+
+
+
+
+

@@ -1,0 +1,33 @@
+TURBONOMIC COMMODITY CHANGE ANALYSIS REPORT
+============================================================
+Total Groups Analyzed: 3
+Analysis Date: 2025-09-26 11:34:48
+
+SUMMARY STATISTICS (Total Impact Considering Replicas)
+-------------------------------------------------------
+Total Workloads: 3
+Workloads with Changes: 3
+
+COMMODITY-SPECIFIC STATISTICS
+-----------------------------------
+VCPU: 2 changes (2 increases, 0 decreases)
+VCPURequest: 2 changes (2 increases, 0 decreases)
+VMem: 2 changes (2 increases, 0 decreases)
+VMemRequest: 2 changes (2 increases, 0 decreases)
+
+TOTAL IMPACT CHANGES BY COMMODITY TYPE
+-----------------------------------------------------------------
+Commodity       | Workloads with Changes | Total Impact Change      
+--------------------------------------------------------------------
+VCPU            | 2                      | +2200 mc                 
+VCPURequest     | 2                      | +1100 mc                 
+VMem            | 2                      | +2.50 GiB
+VMemRequest     | 2                      | +1.25 GiB
+
+DETAILED RESULTS TABLE (Top 10 by VCPURequest change)
+=========================================================================================================================================================
+Cluster        | Workload          | Namespace          | Container         | Replicas | VCPU (mc)  | VCPURequest (mc)  | VMem (GiB)  | VMemRequest (GiB)
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+test-cluster-2 | api-gateway-gamma | gateway-namespace  | api-gateway-gamma | 4        | +1600      | +800              |             |
+test-cluster-1 | web-app-alpha     | app-namespace      | web-app-alpha     | 2→3      | +600       | +300              | +1.50       | +0.75
+test-cluster-1 | db-service-beta   | database-namespace | db-service-beta   | 1        |            |                   | +1.00       | +0.50

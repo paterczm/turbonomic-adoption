@@ -1,0 +1,11 @@
+Date created,Name,Container cluster,Number of replicas,Namespace,Container Spec,Impacted Commodity,Resize Direction,Current Value,New Value,Change,Units,Action Description,Action Category,Risk Descrption,Action Mode,User Account,Execution Date and Time,Execution Status,Execution Error,Tags
+15 Sep 2025 10:00,single-action-app,Kubernetes-single-action-test,3,single-ns,single-action-app,VCPU,Upsize,800.0,1200.0,400,mCores,Resize VCPU Limit for Workload Controller single-action-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,test: single-action
+15 Sep 2025 10:00,single-action-app,Kubernetes-single-action-test,3,single-ns,single-action-app,VCPURequest,Downsize,600.0,400.0,-200,mCores,Resize VCPU Request for Workload Controller single-action-app,Efficiency,Underutilized VCPU Request,AUTOMATIC,SYSTEM,15 Sep 2025 10:00,SUCCEEDED,,test: single-action
+16 Sep 2025 11:00,multi-action-app,Kubernetes-single-action-test,2,single-ns,multi-action-app,VMem,Upsize,1048576.0,2097152.0,1048576,KB,Resize VMem Limit for Workload Controller multi-action-app,Performance,VMem Limit Congestion,AUTOMATIC,SYSTEM,16 Sep 2025 11:00,SUCCEEDED,,test: first-action
+17 Sep 2025 12:00,multi-action-app,Kubernetes-single-action-test,4,single-ns,multi-action-app,VMem,Downsize,2097152.0,1572864.0,-524288,KB,Resize VMem Limit for Workload Controller multi-action-app,Efficiency,Underutilized VMem Limit,AUTOMATIC,SYSTEM,17 Sep 2025 12:00,SUCCEEDED,,test: second-action
+15 Sep 2025 10:30,isolated-commodity-app,Kubernetes-single-action-test,1,single-ns,isolated-commodity-app,VMemRequest,Upsize,524288.0,1048576.0,524288,KB,Resize VMem Request for Workload Controller isolated-commodity-app,Performance,VMem Request Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 10:30,SUCCEEDED,,test: isolated-single
+
+
+
+
+

@@ -1,0 +1,14 @@
+Date created,Name,Container cluster,Number of replicas,Namespace,Container Spec,Impacted Commodity,Resize Direction,Current Value,New Value,Change,Units,Action Description,Action Category,Risk Descrption,Action Mode,User Account,Execution Date and Time,Execution Status,Execution Error,Tags
+10 Sep 2025 08:00,early-app,Kubernetes-time-test-cluster,2,time-ns,early-app,VCPU,Upsize,500.0,1000.0,500,mCores,Resize VCPU Limit for Workload Controller early-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,10 Sep 2025 08:00,SUCCEEDED,,timeframe: early
+10 Sep 2025 08:00,early-app,Kubernetes-time-test-cluster,2,time-ns,early-app,VCPURequest,Upsize,250.0,500.0,250,mCores,Resize VCPU Request for Workload Controller early-app,Performance,VCPU Request Congestion,AUTOMATIC,SYSTEM,10 Sep 2025 08:00,SUCCEEDED,,timeframe: early
+15 Sep 2025 12:00,mid-app,Kubernetes-time-test-cluster,3,time-ns,mid-app,VCPU,Upsize,1000.0,1500.0,500,mCores,Resize VCPU Limit for Workload Controller mid-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 12:00,SUCCEEDED,,timeframe: middle
+15 Sep 2025 12:00,mid-app,Kubernetes-time-test-cluster,3,time-ns,mid-app,VCPURequest,Upsize,500.0,750.0,250,mCores,Resize VCPU Request for Workload Controller mid-app,Performance,VCPU Request Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 12:00,SUCCEEDED,,timeframe: middle
+15 Sep 2025 12:00,mid-app,Kubernetes-time-test-cluster,3,time-ns,mid-app,VMem,Upsize,1048576.0,1572864.0,524288,KB,Resize VMem Limit for Workload Controller mid-app,Performance,VMem Limit Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 12:00,SUCCEEDED,,timeframe: middle
+15 Sep 2025 12:00,mid-app,Kubernetes-time-test-cluster,3,time-ns,mid-app,VMemRequest,Upsize,524288.0,786432.0,262144,KB,Resize VMem Request for Workload Controller mid-app,Performance,VMem Request Congestion,AUTOMATIC,SYSTEM,15 Sep 2025 12:00,SUCCEEDED,,timeframe: middle
+20 Sep 2025 16:00,late-app,Kubernetes-time-test-cluster,1,time-ns,late-app,VCPU,Downsize,800.0,400.0,-400,mCores,Resize VCPU Limit for Workload Controller late-app,Efficiency,Underutilized VCPU Limit,AUTOMATIC,SYSTEM,20 Sep 2025 16:00,SUCCEEDED,,timeframe: late
+20 Sep 2025 16:00,late-app,Kubernetes-time-test-cluster,1,time-ns,late-app,VCPURequest,Downsize,400.0,200.0,-200,mCores,Resize VCPU Request for Workload Controller late-app,Efficiency,Underutilized VCPU Request,AUTOMATIC,SYSTEM,20 Sep 2025 16:00,SUCCEEDED,,timeframe: late
+
+
+
+
+

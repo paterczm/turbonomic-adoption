@@ -1,0 +1,11 @@
+Date created,Name,Container cluster,Number of replicas,Namespace,Container Spec,Impacted Commodity,Resize Direction,Current Value,New Value,Change,Units,Action Description,Action Category,Risk Descrption,Action Mode,User Account,Execution Date and Time,Execution Status,Execution Error,Tags
+10 Sep 2025 08:00,cross-commodity-app,Kubernetes-replica-tracking-test,2,test-ns,cross-commodity-app,VCPU,Upsize,500.0,1000.0,500,mCores,Resize VCPU Limit for Workload Controller cross-commodity-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,10 Sep 2025 08:00,SUCCEEDED,,phase: early-vcpu
+12 Sep 2025 10:00,cross-commodity-app,Kubernetes-replica-tracking-test,3,test-ns,cross-commodity-app,VMem,Upsize,1048576.0,1572864.0,524288,KB,Resize VMem Limit for Workload Controller cross-commodity-app,Performance,VMem Limit Congestion,AUTOMATIC,SYSTEM,12 Sep 2025 10:00,SUCCEEDED,,phase: mid-vmem
+14 Sep 2025 12:00,cross-commodity-app,Kubernetes-replica-tracking-test,5,test-ns,cross-commodity-app,VCPURequest,Upsize,300.0,600.0,300,mCores,Resize VCPU Request for Workload Controller cross-commodity-app,Performance,VCPU Request Congestion,AUTOMATIC,SYSTEM,14 Sep 2025 12:00,SUCCEEDED,,phase: latest-vcpurequest
+11 Sep 2025 09:00,same-replica-app,Kubernetes-replica-tracking-test,3,test-ns,same-replica-app,VCPU,Upsize,800.0,1200.0,400,mCores,Resize VCPU Limit for Workload Controller same-replica-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,11 Sep 2025 09:00,SUCCEEDED,,phase: consistent-replicas
+13 Sep 2025 11:00,same-replica-app,Kubernetes-replica-tracking-test,3,test-ns,same-replica-app,VCPURequest,Downsize,600.0,400.0,-200,mCores,Resize VCPU Request for Workload Controller same-replica-app,Efficiency,Underutilized VCPU Request,AUTOMATIC,SYSTEM,13 Sep 2025 11:00,SUCCEEDED,,phase: consistent-replicas
+
+
+
+
+

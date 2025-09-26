@@ -1,0 +1,4 @@
+cluster,namespace,workload_kind,workload_name,container_spec,replicas,VCPU_change_mc,VCPU_change_pct,VCPURequest_change_mc,VCPURequest_change_pct,VMem_change_GiB,VMem_change_pct,VMemRequest_change_GiB,VMemRequest_change_pct,oldest_date,newest_date,time_span_days,total_absolute_impact
+Kubernetes-test-cluster-2,gateway-namespace,WorkloadController,api-gateway-gamma,api-gateway-gamma,4,1600.0,50.0,800.0,50.0,0.0,0,0.0,0,2025-09-16 11:30:00,2025-09-16 11:30:00,0,2400.0
+Kubernetes-test-cluster-1,app-namespace,WorkloadController,web-app-alpha,web-app-alpha,2→3,600.0,20.0,300.0,20.0,1.5,50.0,0.75,50.0,2025-09-15 10:00:00,2025-09-16 11:00:00,1,2360196.0
+Kubernetes-test-cluster-1,database-namespace,WorkloadController,db-service-beta,db-service-beta,1,0,0,0,0,1.0,50.0,0.5,50.0,2025-09-15 10:30:00,2025-09-15 10:30:00,0,1572864.0

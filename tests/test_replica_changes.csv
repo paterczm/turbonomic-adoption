@@ -1,0 +1,14 @@
+Date created,Name,Container cluster,Number of replicas,Namespace,Container Spec,Impacted Commodity,Resize Direction,Current Value,New Value,Change,Units,Action Description,Action Category,Risk Descrption,Action Mode,User Account,Execution Date and Time,Execution Status,Execution Error,Tags
+14 Sep 2025 09:00,scaling-app,Kubernetes-replica-test-cluster,2,replica-ns,scaling-app,VCPU,Upsize,1000.0,1500.0,500,mCores,Resize VCPU Limit for Workload Controller scaling-app,Performance,VCPU Throttling Congestion,AUTOMATIC,SYSTEM,14 Sep 2025 09:00,SUCCEEDED,,phase: initial
+14 Sep 2025 09:00,scaling-app,Kubernetes-replica-test-cluster,2,replica-ns,scaling-app,VCPURequest,Upsize,500.0,750.0,250,mCores,Resize VCPU Request for Workload Controller scaling-app,Performance,VCPU Request Congestion,AUTOMATIC,SYSTEM,14 Sep 2025 09:00,SUCCEEDED,,phase: initial
+14 Sep 2025 09:00,scaling-app,Kubernetes-replica-test-cluster,2,replica-ns,scaling-app,VMem,Upsize,1048576.0,1572864.0,524288,KB,Resize VMem Limit for Workload Controller scaling-app,Performance,VMem Limit Congestion,AUTOMATIC,SYSTEM,14 Sep 2025 09:00,SUCCEEDED,,phase: initial
+14 Sep 2025 09:00,scaling-app,Kubernetes-replica-test-cluster,2,replica-ns,scaling-app,VMemRequest,Upsize,524288.0,786432.0,262144,KB,Resize VMem Request for Workload Controller scaling-app,Performance,VMem Request Congestion,AUTOMATIC,SYSTEM,14 Sep 2025 09:00,SUCCEEDED,,phase: initial
+17 Sep 2025 14:00,scaling-app,Kubernetes-replica-test-cluster,5,replica-ns,scaling-app,VCPU,Downsize,1500.0,1200.0,-300,mCores,Resize VCPU Limit for Workload Controller scaling-app,Efficiency,Underutilized VCPU Limit,AUTOMATIC,SYSTEM,17 Sep 2025 14:00,SUCCEEDED,,phase: scaled
+17 Sep 2025 14:00,scaling-app,Kubernetes-replica-test-cluster,5,replica-ns,scaling-app,VCPURequest,Downsize,750.0,600.0,-150,mCores,Resize VCPU Request for Workload Controller scaling-app,Efficiency,Underutilized VCPU Request,AUTOMATIC,SYSTEM,17 Sep 2025 14:00,SUCCEEDED,,phase: scaled
+17 Sep 2025 14:00,scaling-app,Kubernetes-replica-test-cluster,5,replica-ns,scaling-app,VMem,Downsize,1572864.0,1310720.0,-262144,KB,Resize VMem Limit for Workload Controller scaling-app,Efficiency,Underutilized VMem Limit,AUTOMATIC,SYSTEM,17 Sep 2025 14:00,SUCCEEDED,,phase: scaled
+17 Sep 2025 14:00,scaling-app,Kubernetes-replica-test-cluster,5,replica-ns,scaling-app,VMemRequest,Downsize,786432.0,655360.0,-131072,KB,Resize VMem Request for Workload Controller scaling-app,Efficiency,Underutilized VMem Request,AUTOMATIC,SYSTEM,17 Sep 2025 14:00,SUCCEEDED,,phase: scaled
+
+
+
+
+
