@@ -23,6 +23,15 @@ This repository contains tools for analyzing Turbonomic commodity changes over t
 - Outputs CSV with time series data
 - Perfect for identifying patterns and trends
 
+### 3. `remove_duplicate_actions.py`
+**Data preprocessing tool** - Removes consecutive duplicate actions from Turbonomic CSV files.
+
+**Key Features:**
+- Identifies consecutive duplicate actions (same cluster/container/commodity/values)
+- Two modes: basic (keeps first occurrence) or conservative (removes entire groups)
+- Generates detailed duplicate removal reports
+- Essential for clean data analysis and consistent results
+
 ## Quick Start
 
 ### Basic Commodity Analysis
@@ -47,6 +56,18 @@ python turbonomic_time_bucket_analyzer.py data.csv -o daily_trends.csv --bucket-
 
 # Monthly trends for specific clusters
 python turbonomic_time_bucket_analyzer.py data.csv -o monthly_trends.csv --bucket-days 30 --cluster prod-cluster-1
+```
+
+### Data Preprocessing (Remove Duplicates)
+```bash
+# Basic duplicate removal (recommended first step)
+python remove_duplicate_actions.py raw_data.csv clean_data.csv
+
+# With duplicate removal report
+python remove_duplicate_actions.py raw_data.csv clean_data.csv --report duplicates_removed.csv
+
+# Conservative mode (removes entire groups with duplicates)
+python remove_duplicate_actions.py raw_data.csv clean_data.csv --conservative --report conservative_removals.csv
 ```
 
 ## Input Data Format
@@ -111,6 +132,12 @@ from,to,VCPU,VCPURequest,VMem,VMemRequest
 - **Cluster filtering**: Support for both short names (`prod-cluster`) and full names (`Kubernetes-prod-cluster`)
 - **Time windows**: `--from` and `--to` date filtering with robust date parsing
 - **Multiple clusters**: Use `--cluster` multiple times to include specific clusters
+- **Conservative mode**: `--conservative` flag filters to only recent activity (last N days)
+
+### 🧹 **Data Quality**
+- **Duplicate removal**: Identify and remove consecutive duplicate actions
+- **Conservative cleaning**: Option to remove entire action groups with duplicates
+- **Detailed reporting**: Track exactly what duplicates were removed
 
 ### 📊 **Time Series Analysis**
 - Configurable time buckets (daily, weekly, monthly, custom)
@@ -118,8 +145,9 @@ from,to,VCPU,VCPURequest,VMem,VMemRequest
 - Identifies patterns in resource scaling
 
 ### 🧪 **Comprehensive Testing**
-- 65+ automated tests covering all functionality
+- 130+ automated tests covering all functionality  
 - Anonymized test data for safe testing
+- Conservative filtering test coverage
 - Edge case validation and error handling tests
 
 ## Command Line Options
@@ -132,9 +160,13 @@ Options:
   -r, --output-report FILE    Output text report file
   -c, --output-csv FILE      Output CSV results file  
   --cluster CLUSTER          Filter by cluster (can be used multiple times)
+  --namespace NAMESPACE      Filter by namespace (supports wildcards like "app-*")
   --from DATE                Filter from date ("DD MMM YYYY HH:MM")
   --to DATE                  Filter to date ("DD MMM YYYY HH:MM")
+  --conservative             Only analyze workloads with recent actions
+  --conservative-days DAYS   Days to look back for recent actions (default: 14)
   --show-all                 Show all results (not just top 10)
+  --show-actions             Show detailed action breakdown
   -v, --verbose              Enable verbose output
 ```
 
@@ -150,6 +182,20 @@ Options:
   -v, --verbose              Enable verbose output
 ```
 
+### Duplicate Remover
+```bash
+python remove_duplicate_actions.py [OPTIONS] INPUT_FILE OUTPUT_FILE
+
+Options:
+  --report FILE              Save duplicate removal report to CSV file
+  --conservative             Remove ALL actions from groups with duplicates
+  -v, --verbose              Enable verbose output
+
+Arguments:
+  INPUT_FILE                 Input CSV file with Turbonomic actions
+  OUTPUT_FILE                Output CSV file with duplicates removed
+```
+
 ## Testing
 
 Run the comprehensive test suite:
@@ -161,33 +207,51 @@ python test_runner.py
 **Test Coverage:**
 - ✅ Basic functionality and report generation
 - ✅ Cluster filtering (short/full names, multiple clusters)
+- ✅ Namespace filtering (exact match, wildcards, multiple)
 - ✅ Time window filtering (--from, --to, combined)
+- ✅ Conservative filtering (workload-level, various time windows)
 - ✅ Replica change tracking (workload-level)
 - ✅ Time bucket analysis
 - ✅ Output file generation
+- ✅ Combined filter scenarios
 - ✅ Edge cases and error handling
 
 ## Use Cases
 
-### 1. **Resource Optimization Analysis**
+### 1. **Complete Analysis Workflow**
 ```bash
-# Analyze recent changes to see optimization impact
-python turbonomic_commodity_analyzer.py data.csv --from "01 Oct 2025 00:00" --show-all
+# Step 1: Clean the data first (recommended)
+python remove_duplicate_actions.py raw_data.csv clean_data.csv --report duplicates.csv
+
+# Step 2: Analyze recent activity only
+python turbonomic_commodity_analyzer.py clean_data.csv --conservative --from "01 Oct 2025 00:00" --show-all
+
+# Step 3: Generate trend analysis
+python turbonomic_time_bucket_analyzer.py clean_data.csv -o trends.csv -r weekly_summary.txt
 ```
 
-### 2. **Cluster-Specific Trends**
+### 2. **Resource Optimization Analysis**
+```bash
+# Analyze recent changes to see optimization impact (conservative mode)
+python turbonomic_commodity_analyzer.py data.csv --conservative --conservative-days 7 --show-all
+```
+
+### 3. **Cluster-Specific Trends**
 ```bash
 # Compare trends across production clusters
 python turbonomic_time_bucket_analyzer.py data.csv -o prod_trends.csv --cluster prod-cluster-1 --cluster prod-cluster-2
 ```
 
-### 3. **Weekly Resource Planning**
+### 4. **Data Quality Assessment**
 ```bash
-# Weekly resource demand analysis
-python turbonomic_time_bucket_analyzer.py data.csv -o weekly_planning.csv -r weekly_summary.txt
+# Check for duplicates and clean data
+python remove_duplicate_actions.py raw_data.csv clean_data.csv --report quality_report.csv --verbose
+
+# Conservative cleaning (removes entire groups with duplicates)
+python remove_duplicate_actions.py raw_data.csv ultra_clean.csv --conservative --report conservative_report.csv
 ```
 
-### 4. **Daily Monitoring**
+### 5. **Daily Monitoring**
 ```bash
 # Daily resource change monitoring
 python turbonomic_time_bucket_analyzer.py data.csv -o daily_monitor.csv --bucket-days 1
